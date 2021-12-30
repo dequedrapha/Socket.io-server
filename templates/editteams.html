@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Edit Team Name | AlphaSide</title>
+        <link rel="shortcut icon" href="C:\Users\Admin\Pictures\icon_2_transparent.png">
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'css/styleeditname.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'css/navbar.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="title">BambooCup</div>
+            <form action="#">
+                <div class="field">
+                    <input type="text" required>
+                    <label>Team NR.1 ShortName</label>
+                </div>
+                <div class="field">
+                    <input type="text" required>
+                    <label>Team NR.1 Name</label>
+                </div>
+                <div class="field">
+                    <input type="text" required>
+                    <label>Team NR.1 LogoPath</label>
+                </div>
+                <div class="field">
+                    <input type="text" required>
+                    <label>Team NR.2 ShortName</label>
+                </div>
+                <div class="field">
+                    <input type="text" required>
+                    <label>Team NR.2 Name</label>
+                </div>
+                <div class="field">
+                    <input type="text" required>
+                    <label>Team NR.2 LogoPath</label>
+                </div>
+                <div class="content">
+                    </div>
+                <div class="field">
+                    <input type="submit" value="Submit" id="log-in">
+                </div>
+                    <script type="text/javascript" src="static/js/editteams.js"></script>
+            </form>
+                <div id="teamName" style="font-size:20px; opacity: 0%;">
+                    Data was sended successfully to the API server and will been updated there!
+                </div>
+        </div>
+        
+    </body>
+</html>
