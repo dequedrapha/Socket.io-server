@@ -39,6 +39,8 @@ team_details = [
         'logo':'default.png'
     }
 ]
+global state 
+state = 'MENU'
 @app.route('/api/v1/get_team_details', methods=['GET'])
 @cross_origin(allow_headers=['*'])
 def get_team_details():
@@ -68,11 +70,12 @@ def get_match_details():
 @cross_origin(allow_headers=['*'])
 def get_row_match_details():
     global match_row_details
+    global state
     # for testing:
     # testing_details = constants.corematch_example
     # return jsonify({"response": testing_details})
     # print("returning",match_details)
-    return jsonify({"data": match_row_details, 'state':'MENU'})
+    return jsonify({"data": match_row_details, 'state':state})
 
 @app.route('/api/v1/get-name/<puuid>', methods=['GET', 'POST'])
 @cross_origin(allow_headers=['*'])
@@ -107,6 +110,15 @@ def after_connect():
     print("After machine- connected")
     #global state 
     #state = updatestate
+
+@socket_io.on('update_details')
+def update_details(data):
+    print("Sending new match_details")
+    global match_details
+    match_details = data['match_details']
+    global state
+    state = data['game_state']
+    emit('receive_details',  {'match_details': data['match_details'], 'live_details': data['live_details'], 'team_details': team_details}, broadcast=True, include_self=False)
 
 @app.route('/edit_team_details')
 @cross_origin(allow_headers=['*'])
