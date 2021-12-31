@@ -129,5 +129,5 @@ def edit_team_details():
 
 if __name__ == "__main__":
     # socketio.run(app, port=4445, host = socket.gethostbyname(socket.gethostname()),debug='true')
-    socket_io.run(app, host='0.0.0.0', port=5004, debug='true', log_output='true)
+    socket_io.run(app, host='0.0.0.0', port=5004, debug='true')
     # app.run(host='0.0.0.0', port=4445, debug='true')
