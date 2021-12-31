@@ -9,3 +9,4 @@ gunicorn
 eventlet
 gevent-websocket
 numpy
+uvicorn
