@@ -3,6 +3,7 @@ websocket-client==1.2.1
 python-socketio==5.4.0
 Flask
 Flask-Cors
+flask-socketio
 requests
 gunicorn
 eventlet
