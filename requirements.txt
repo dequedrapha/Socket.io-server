@@ -4,3 +4,6 @@ python-socketio==5.4.0
 Flask
 Flask-Cors
 requests
+gunicorn
+eventlet
+gevent-websocket
