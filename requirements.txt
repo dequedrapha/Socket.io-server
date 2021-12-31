@@ -10,3 +10,4 @@ eventlet
 gevent-websocket
 numpy
 uvicorn
+uwsgi
