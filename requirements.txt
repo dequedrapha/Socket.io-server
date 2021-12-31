@@ -1,12 +1,6 @@
-opencv-python
 socketIO-client==0.7.2
 websocket-client==1.2.1
 python-socketio==5.4.0
 Flask
 Flask-Cors
-prettytable
-urllib3
 requests
-easyocr
-pytesseract
-numpy
