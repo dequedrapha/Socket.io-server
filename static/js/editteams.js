@@ -181,7 +181,7 @@ if(jsonload[0].logo == ''){
 if(jsonload[1].logo == ''){
   jsonload[1].logo = 'default.png'
 }
-  await fetch(`http://127.0.0.1:4445/api/v1/post_team_details`, {
+  await fetch(`https://socket-io-test-station.herokuapp.com/api/v1/post_team_details`, {
   method: "POST",
   headers: {
   'Content-Type': 'application/json'
