@@ -70,6 +70,8 @@ io.on('connection', function(socket){
         state = data['game_state']
         row_match_details = data['row_match_details']
         socket.emit('receive_details',  {'match_details': data['match_details'], 'live_details': data['live_details'], 'team_details': teamDetails})
+         socket.emit('check_details',  {'match_details': data['match_details'], 'live_details': data['live_details'], 'team_details': teamDetails})
+         socket.emit('overlay_details',  {'match_details': data['match_details'], 'live_details': data['live_details'], 'team_details': teamDetails})
     })
     setInterval(()=>{
        socket.emit('hello', 'Nothing')
