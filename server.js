@@ -1,7 +1,11 @@
 var express = require('express')
 var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var io = require('socket.io')(http,{
+    cors: {
+      origin: '*',
+    }
+});
 var axios = require('axios')
 const fs = require("fs")
 app.use(express.static(__dirname));
