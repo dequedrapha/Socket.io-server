@@ -71,6 +71,11 @@ io.on('connection', function(socket){
         row_match_details = data['row_match_details']
         socket.emit('receive_details',  {'match_details': data['match_details'], 'live_details': data['live_details'], 'team_details': teamDetails})
     })
+    
+    socket.on('hello', function(data){
+           console.log(`Hello! | ${data}`)
+            socket.emit('hello', {'Nothing'})
+    })
 });
 
 
