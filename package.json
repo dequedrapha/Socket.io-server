@@ -2,10 +2,10 @@
   "name": "socket.io-server",
   "version": "1.0.0",
   "description": "",
-  "main": "static/js/server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node static/js/server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
