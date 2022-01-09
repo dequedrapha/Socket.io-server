@@ -65,7 +65,7 @@ io.on('connection', function(socket){
     match_details = data['match_details']
     state = data['game_state']
     row_match_details = data['row_match_details']
-    socket.emit('receive_details',  {'match_details': data['match_details'], 'live_details': data['live_details'], 'team_details': team_details}, broadcast=true, include_self=false)
+    socket.emit('receive_details',  {'match_details': data['match_details'], 'live_details': data['live_details'], 'team_details': teamDetails}, broadcast=true, include_self=false)
     })
 });
 
