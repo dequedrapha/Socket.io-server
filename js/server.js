@@ -1,10 +1,11 @@
-const { request } = require('express');
 var express = require('express')
 const fetch = require('node-fetch');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var axios = require('axios')
+const fs = require("fs")
+app.use(express.static(__dirname));
 var teamDetails = [
     {
         'short_name':'TT1',
@@ -51,6 +52,10 @@ app.get('/api/v1/get-name/:puuid', async function(req, res){
     var namejson = name.data
     console.log(name.data)
     res.send({GameName: `${namejson.data.name}#${namejson.data.tag}`, name: namejson.data.name, tag: namejson.data.tag});
+})
+
+app.get('/edit_team_details', async function(req, res){
+    res.sendFile(__dirname+'/editteams.html')
 })
 
 io.on('connection', function(socket){
