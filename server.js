@@ -74,7 +74,7 @@ io.on('connection', function(socket){
     
     socket.on('hello', function(data){
            console.log(`Hello! | ${data}`)
-            socket.emit('hello', {'Nothing'})
+            socket.emit('hello', 'Nothing')
     })
 });
 
