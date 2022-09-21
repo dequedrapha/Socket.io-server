@@ -19,6 +19,7 @@
   "homepage": "https://github.com/LPBlive/Socket.io-server#readme",
   "dependencies": {
     "axios": "^0.24.0",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "http": "^0.0.1-security",
     "socket.io": "^4.4.1"
