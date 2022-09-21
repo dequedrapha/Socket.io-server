@@ -6,6 +6,7 @@ var io = require('socket.io')(http,{
       origin: '*',
     }
 });
+var cors = require("cors")
 var axios = require('axios')
 const fs = require("fs")
 app.use(express.static(__dirname));
@@ -21,6 +22,8 @@ var teamDetails = [
         'logo':'default.png'
     }
 ]
+const allowedOrigins = ['*'];
+app.use(cors(allowedOrigins));
 app.use(express.json());
 var match_details = {"red": {}, "blue": {}, "events": []}
 var row_match_details = {}
@@ -28,6 +31,7 @@ var current_state;
 var current_gamemode;
 app.get('/', function(req, res){
     res.send('Hello');
+    io.emit('after connect',  {'data': 'Woke up'})
 });
 
 app.get('/api/v1/get_team_details', function(req, res){
@@ -55,6 +59,33 @@ app.get('/api/v1/get-name/:puuid', async function(req, res){
     var namejson = name.data
     console.log(name.data)
     res.send({GameName: `${namejson.data.name}#${namejson.data.tag}`, name: namejson.data.name, tag: namejson.data.tag});
+})
+
+app.get('/api/v1/overwolf/event/:state', async function(req, res){
+    var state = req.params.state;
+    console.log(state)
+    io.emit('event', {"event": state})
+    res.status(200).send("successfully updated!")
+})
+
+app.post('/api/v1/overwolf/infoupdate/', async function(req, res){
+    let json = req.body
+    console.log(json)
+    if(json == {} || json == "{}") return;
+    
+    if(json.match_info){
+        
+        let matchinfo = json.match_info
+        io.emit('infoupdate', {"info": matchinfo})
+        if(matchinfo.round_number){io.emit('round_number_update', {"round": matchinfo.round_number}); console.log("Round number")}
+        if(matchinfo.score){io.emit('score_update', {"score": matchinfo.score}); console.log("Score")}
+        if(matchinfo.round_phase){io.emit('round_phase_update', {"roundphase": matchinfo.round_phase}); console.log("Round Phase")}
+        if(matchinfo.team){io.emit('team_side_update', {"team": matchinfo.team}); console.log("Team")}
+        if(matchinfo.match_outcome){io.emit('match_outcome', {"match_outcome": matchinfo.match_outcome}); console.log("Match Outcome")}
+        if(matchinfo.scoreboard_0 || matchinfo.scoreboard_1 || matchinfo.scoreboard_2 || matchinfo.scoreboard_3 || matchinfo.scoreboard_4 || matchinfo.scoreboard_5 || matchinfo.scoreboard_6 || matchinfo.scoreboard_7 || matchinfo.scoreboard_8 || matchinfo.scoreboard_9){io.emit('scoreboard_update', matchinfo); console.log("Scoreboard")}
+    }
+    
+    res.status(200).send("successfully updated!")
 })
 
 app.get('/edit_team_details', async function(req, res){
