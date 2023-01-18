@@ -3,49 +3,94 @@
     <head>
         <meta charset="utf-8">
         <title>Edit Team Name | AlphaSide</title>
-        <link type="text/css" rel="stylesheet" href="static/css/styleeditname.css">
-        <link type="text/css" rel="stylesheet" href="static/css/navbar.css">
+        <link rel="shortcut icon" href="C:\Users\Admin\Pictures\icon_2_transparent.png">
+        <link rel="stylesheet" href="css/styleeditname.css">
+        <link rel="stylesheet" href="css/navbar.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     </head>
     <body>
         <div class="wrapper">
-            <div class="title">Edit Team Details</div>
+            <div class="title">Dashboard</div>
             <form action="#">
-                <div class="field">
-                    <input type="text" required>
-                    <label>Team NR.1 ShortName</label>
-                </div>
-                <div class="field">
-                    <input type="text" required>
-                    <label>Team NR.1 Name</label>
-                </div>
-                <div class="field">
-                    <input type="text" required>
-                    <label>Team NR.1 LogoPath</label>
-                </div>
-                <div class="field">
-                    <input type="text" required>
-                    <label>Team NR.2 ShortName</label>
-                </div>
-                <div class="field">
-                    <input type="text" required>
-                    <label>Team NR.2 Name</label>
-                </div>
-                <div class="field">
-                    <input type="text" required>
-                    <label>Team NR.2 LogoPath</label>
-                </div>
+                <div class="column">
+                    <div class="field">
+                      <input type="text" required />
+                      <label>Team NR.1 ShortName</label>
+                    </div>
+                    <div class="field">
+                      <input type="text" required />
+                      <label>Team NR.2 ShortName</label>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="field">
+                      <input type="text" required />
+                      <label>Team NR.1 Name</label>
+                    </div>
+                    <div class="field">
+                      <input type="text" required />
+                      <label>Team NR.2 Name</label>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="field">
+                      <input type="text" required />
+                      <label>Team NR.1 LogoPath</label>
+                    </div>
+                    <div class="field">
+                      <input type="text" required />
+                      <label>Team NR.2 LogoPath</label>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="column">
+                    <div class="field">
+                      <input type="radio" name="BO" checked/>
+                      <label>BestOf1</label>
+                    </div>
+                    <div class="field">
+                      <input type="radio" name="BO"/>
+                      <label>BestOf3</label>
+                    </div>
+                    <div class="field">
+                        <input type="radio" name="BO"/>
+                        <label>BestOf5</label>
+                      </div>
+                  </div>
+                  <div class="column">
+                    <div class="field">
+                        <input type="submit" value="Add Map Point" id="add-map-point-1" style="background: linear-gradient(-135deg, #50c86e, #4158d0);">
+                    </div>
+                    <div class="field">
+                        <input type="submit" value="Add Map Point" id="add-map-point-2" style="background: linear-gradient(-135deg, #50c86e, #4158d0);">
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="field">
+                        <input type="submit" value="Remove Map Point" id="remove-map-point-1" style="background: linear-gradient(-135deg, #eb2020, #4158d0);">
+                    </div>
+                    <div class="field">
+                        <input type="submit" value="Remove Map Point" id="remove-map-point-2" style="background: linear-gradient(-135deg, #eb2020, #4158d0);">
+                    </div>
+                  </div>
                 <div class="content">
                     </div>
                 <div class="field">
-                    <input type="submit" value="Submit" id="log-in">
+                    <input type="submit" value="Switch sides" id="switch-sides">
+                        
                 </div>
-                    <script type="text/javascript" src="static/js/editteams.js"></script>
+                <div class="field">
+                    <input type="submit" value="Submit" id="log-in">
+                    
+                </div>
+                
+                    <script type="text/javascript" src="js/editteams.js"></script>
             </form>
                 <div id="teamName" style="font-size:20px; opacity: 0%;">
                     Data was sended successfully to the API server and will been updated there!
                 </div>
         </div>
+        
         
     </body>
 </html>
